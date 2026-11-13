@@ -1,0 +1,64 @@
+:root {
+  --fondo: #faf6f1; --superficie: #ffffff; --texto: #2b2118; --suave: #6f6256; --borde: #e6dccf;
+  --marca: #8a3b12; --marca-clara: #f5e6d3; --bueno: #1f7a45; --malo: #b3261e; --aviso: #9a6200; --urgente: #b3261e;
+  --radio: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #17120e; --superficie: #211a14; --texto: #f2e9df; --suave: #b3a493; --borde: #3a2f26;
+    --marca: #e8a26b; --marca-clara: #3a2b1d; --bueno: #55c585; --malo: #ff8a80; --aviso: #f0b34f; --urgente: #ff8a80;
+  }
+}
+* { box-sizing: border-box; }
+html { color-scheme: light dark; }
+body {
+  margin: 0; background: var(--fondo); color: var(--texto);
+  font: 15px/1.45 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+h1 { font-size: 1.6rem; margin: 0 0 .5rem; } h2 { font-size: 1.2rem; margin: 1.1rem 0 .6rem; } h3 { font-size: 1rem; margin: 1.3rem 0 .5rem; color: var(--suave); text-transform: uppercase; letter-spacing: .04em; }
+a { color: var(--marca); } code { background: var(--marca-clara); padding: 0 .3em; border-radius: 4px; }
+.centrado { min-height: 100vh; display: grid; place-items: center; padding: 1rem; }
+.panel-centrado { background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: 1.5rem; max-width: 26rem; text-align: center; }
+.app { max-width: 62rem; margin: 0 auto; }
+.cabecera { display: flex; align-items: center; gap: .6rem; padding: .7rem 1rem; position: sticky; top: 0; background: var(--fondo); border-bottom: 1px solid var(--borde); z-index: 5; flex-wrap: wrap; }
+.marca { font-weight: 700; text-decoration: none; font-size: 1.1rem; }
+.espacio { flex: 1; } .usuario { color: var(--suave); font-size: .85rem; max-width: 40vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.contenido { padding: 0 1rem 3rem; }
+select { font: inherit; padding: .35rem .5rem; border-radius: 8px; border: 1px solid var(--borde); background: var(--superficie); color: var(--texto); max-width: 100%; }
+.boton { font: inherit; cursor: pointer; padding: .5rem .9rem; border-radius: 10px; border: 1px solid var(--marca); background: var(--superficie); color: var(--marca); margin: .3rem 0; }
+.boton:hover { background: var(--marca-clara); } .boton.grande { background: var(--marca); color: #fff; padding: .7rem 1.2rem; }
+.boton.chico { padding: .2rem .6rem; font-size: .85rem; margin: 0; }
+.rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .7rem; }
+.rejilla.sucursales { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+.tarjeta { background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: .8rem 1rem; }
+.tarjeta.enlace { text-decoration: none; color: inherit; display: block; } .tarjeta.enlace:hover { border-color: var(--marca); }
+.tarjeta-titulo { color: var(--suave); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
+.tarjeta-valor { font-size: 1.45rem; font-weight: 700; margin: .15rem 0; font-variant-numeric: tabular-nums; }
+.tarjeta-detalle { color: var(--suave); font-size: .85rem; }
+.bueno { color: var(--bueno); } .malo { color: var(--malo); }
+.fila-titulo { display: flex; align-items: center; justify-content: space-between; gap: .5rem; flex-wrap: wrap; }
+.etiqueta { display: inline-block; font-size: .75rem; font-weight: 600; padding: .1rem .5rem; border-radius: 999px; border: 1px solid currentColor; }
+.etiqueta.bueno { color: var(--bueno); } .etiqueta.malo, .etiqueta.urgente { color: var(--malo); } .etiqueta.aviso { color: var(--aviso); } .etiqueta.neutro { color: var(--suave); }
+.pestanas { display: flex; gap: .3rem; overflow-x: auto; border-bottom: 1px solid var(--borde); margin: .5rem 0 1rem; }
+.pestanas a { padding: .55rem .8rem; text-decoration: none; color: var(--suave); border-bottom: 3px solid transparent; white-space: nowrap; }
+.pestanas a.activa { color: var(--marca); border-bottom-color: var(--marca); font-weight: 600; }
+.contador { background: var(--malo); color: #fff; border-radius: 999px; font-size: .7rem; padding: 0 .4rem; margin-left: .3rem; }
+.nota { color: var(--suave); font-size: .85rem; } .nota.alerta { color: var(--aviso); background: var(--marca-clara); padding: .5rem .7rem; border-radius: 8px; }
+.aviso-estado { color: var(--suave); text-align: center; padding: 1.5rem 0; }
+.caja-error { border: 1px solid var(--malo); color: var(--malo); border-radius: var(--radio); padding: .7rem 1rem; margin: .7rem 0; }
+.campo { display: inline-block; margin: .3rem 0 .8rem; }
+.tabla-scroll { overflow-x: auto; background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); }
+table { width: 100%; border-collapse: collapse; } th, td { padding: .5rem .7rem; text-align: left; border-bottom: 1px solid var(--borde); white-space: nowrap; }
+th { color: var(--suave); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; } tr:last-child td { border-bottom: 0; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.lista { list-style: none; padding: 0; margin: .6rem 0; display: grid; gap: .5rem; }
+.lista li { background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: .6rem .9rem; }
+.lista li.nuevo { border-left: 4px solid var(--marca); } .lista li.leido { opacity: .65; }
+.grafico { margin: 0; background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: .6rem; }
+.grafico svg { width: 100%; height: auto; display: block; } .grafico figcaption { font-size: .8rem; color: var(--suave); padding: .2rem .3rem; }
+.eje { stroke: var(--borde); } .etq { font-size: 10px; fill: var(--suave); }
+.b-ventas { fill: var(--marca); } .b-gastos { fill: var(--suave); opacity: .55; }
+.leyenda { display: inline-block; width: .7rem; height: .7rem; border-radius: 2px; vertical-align: middle; margin-right: .2rem; }
+.leyenda.ventas { background: var(--marca); } .leyenda.gastos { background: var(--suave); opacity: .55; margin-left: .6rem; }
+@media (min-width: 40rem) { .contenido { padding: 0 1.5rem 3rem; } }
