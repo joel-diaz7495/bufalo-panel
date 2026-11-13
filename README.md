@@ -1,5 +1,10 @@
 # Búfalo — Panel del dueño (PWA)
 
+**Abrir el panel publicado:** https://joel-diaz7495.github.io/bufalo-panel/
+
+> El enlace de GitHub (`github.com/joel-diaz7495/bufalo-panel`) muestra el código fuente.
+> La aplicación se abre con la URL de **GitHub Pages** de arriba.
+
 Panel web **de solo lectura** para ver ventas, caja, productos, respaldos y avisos de tus sucursales.
 Vite + React + TypeScript + `supabase-js`. Se instala como app en el celular (PWA). No tiene servidor propio:
 habla directo con Supabase usando el **RLS** del esquema (cada admin ve solo sus sucursales).
